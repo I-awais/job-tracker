@@ -10,7 +10,7 @@ export default function DashboardStats({ jobs }) {
   const offers = jobs.filter((job) => job.status === 'Offer').length;
   const rejected = jobs.filter((job) => job.status === 'Rejected').length;
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+    <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       <Card className={'border-taupe-300 bg-taupe-50 text-taupe-700'}>
         <CardHeader>
           <CardTitle className="text-sm font-medium">Total</CardTitle>
