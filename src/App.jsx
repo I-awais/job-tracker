@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import AddJobForm from './components/AddJobForm';
 import JobList from './components/JobList';
@@ -61,9 +61,21 @@ const sampleList = [
   },
 ];
 export default function App() {
-  const [jobs, setJobs] = useState(sampleList);
+  const [jobs, setJobs] = useState(() => {
+    const savedJobs = localStorage.getItem('jobs');
+
+    if (savedJobs) {
+      return JSON.parse(savedJobs);
+    }
+
+    return [];
+  });
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('All');
+
+  useEffect(() => {
+    localStorage.setItem('jobs', JSON.stringify(jobs));
+  }, [jobs]);
 
   const filteredJobs = jobs.filter((job) => {
     const matchesSearch =
