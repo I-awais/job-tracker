@@ -25,34 +25,36 @@ import ConfirmDialog from './ConfirmDialog';
 function getStatusClasses(status) {
   switch (status) {
     case 'Applied':
-      return 'border-blue-300 bg-blue-50 text-blue-700';
+      return 'border-blue-300 bg-blue-50 text-blue-700 dark:border-blue-300/50 dark:bg-blue-950/60 dark:text-blue-100';
 
     case 'Phone Screen':
-      return 'border-purple-300 bg-purple-50 text-purple-700';
+      return 'border-purple-300 bg-purple-50 text-purple-700 dark:border-violet-300/50 dark:bg-violet-950/60 dark:text-violet-100';
 
     case 'Interview':
-      return 'border-yellow-300 bg-yellow-50 text-yellow-700';
+      return 'border-yellow-300 bg-yellow-50 text-yellow-700 dark:border-amber-300/50 dark:bg-amber-950/55 dark:text-amber-100';
 
     case 'Rejected':
-      return 'border-red-300 bg-red-50 text-red-700';
+      return 'border-red-300 bg-red-50 text-red-700 dark:border-rose-300/50 dark:bg-rose-950/55 dark:text-rose-100';
 
     case 'Offer':
-      return 'border-green-300 bg-green-50 text-green-700';
+      return 'border-green-300 bg-green-50 text-green-700 dark:border-emerald-300/50 dark:bg-emerald-950/55 dark:text-emerald-100';
 
     default:
-      return 'border-input bg-background text-foreground';
+      return 'border-input bg-background text-foreground dark:border-violet-300/30 dark:bg-indigo-950/60 dark:text-slate-100';
   }
 }
 
 export default function JobList({ jobs, onDeleteJob, onStartEdit }) {
   return (
-    <Card>
+    <Card className="border-indigo-100 bg-white/85 shadow-sm shadow-indigo-100/50 backdrop-blur dark:border-violet-300/20 dark:bg-slate-950/55 dark:text-slate-100 dark:shadow-violet-950/30">
       <CardHeader>
         <CardTitle>Applications</CardTitle>
       </CardHeader>
       <CardContent>
         {jobs.length === 0 ? (
-          <p>No job applications added yet.</p>
+          <p className="text-slate-600 dark:text-slate-300">
+            No job applications added yet.
+          </p>
         ) : (
           <Table>
             <TableHeader>
@@ -83,7 +85,7 @@ export default function JobList({ jobs, onDeleteJob, onStartEdit }) {
                         size="sm"
                         variant="outline"
                         onClick={() => onStartEdit(job)}
-                        className="rounded-md border px-3 py-2 text-sm hover:bg-slate-50"
+                        className="rounded-md border px-3 py-2 text-sm hover:bg-slate-50 dark:border-violet-300/30 dark:bg-indigo-950/40 dark:text-slate-100 dark:hover:bg-violet-900/50"
                       >
                         Edit
                       </Button>
@@ -92,7 +94,7 @@ export default function JobList({ jobs, onDeleteJob, onStartEdit }) {
                           <Button
                             size="sm"
                             variant="outline"
-                            className="rounded-md border border-red-300 px-3 py-2 text-sm text-red-600 hover:bg-red-50"
+                            className="rounded-md border border-red-300 px-3 py-2 text-sm text-red-600 hover:bg-red-50 dark:border-rose-300/40 dark:bg-rose-950/30 dark:text-rose-100 dark:hover:bg-rose-900/50"
                           >
                             Delete
                           </Button>
