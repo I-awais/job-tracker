@@ -10,53 +10,61 @@ export default function DashboardStats({ jobs }) {
   const offers = jobs.filter((job) => job.status === 'Offer').length;
   const rejected = jobs.filter((job) => job.status === 'Rejected').length;
   return (
-    <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      <Card className={'border-taupe-300 bg-taupe-50 text-taupe-700'}>
-        <CardHeader>
+    <div className="grid gap-4  sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4">
+      <Card className="border-taupe-300 bg-taupe-50 text-taupe-700 flex-row justify-between">
+        <CardHeader className={'self-center'}>
           <CardTitle className="text-sm font-medium">Total</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className={'self-center'}>
           <p className="text-2xl font-bold">{total}</p>
         </CardContent>
       </Card>
 
-      <Card className="border-blue-300 bg-blue-50 text-blue-700">
-        <CardHeader>
+      <Card className="border-blue-300 bg-blue-50 text-blue-700 flex flex-row justify-between ">
+        <CardHeader className={'self-center'}>
           <CardTitle className="text-sm font-medium">Applied</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className={'self-center'}>
           <p className="text-2xl font-bold">{applied}</p>
         </CardContent>
       </Card>
-      <Card className="border-purple-300 bg-purple-50 text-purple-700">
-        <CardHeader>
+      <Card className="border-purple-300 bg-purple-50 text-purple-700 flex flex-row justify-between ">
+        <CardHeader className={'self-center grow'}>
           <CardTitle className="text-sm font-medium">Phone Screen</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className={'self-center'}>
           <p className="text-2xl font-bold">{phoneScreen}</p>
         </CardContent>
       </Card>
-      <Card className="border-yellow-300 bg-yellow-50 text-yellow-700">
-        <CardHeader>
+      <Card className="border-yellow-300 bg-yellow-50 text-yellow-700 flex flex-row justify-between ">
+        <CardHeader className={'self-center'}>
           <CardTitle className="text-sm font-medium">Interviews</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className={'self-center'}>
           <p className="text-2xl font-bold">{interviews}</p>
         </CardContent>
       </Card>
-      <Card className={'border-green-300 bg-green-50 text-green-700'}>
-        <CardHeader>
+      <Card
+        className={
+          'border-green-300 bg-green-50 text-green-700 flex flex-row justify-between '
+        }
+      >
+        <CardHeader className={'self-center'}>
           <CardTitle className="text-sm font-medium">Offers</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className={'self-center'}>
           <p className="text-2xl font-bold">{offers}</p>
         </CardContent>
       </Card>
-      <Card className={'border-red-300 bg-red-50 text-red-700'}>
-        <CardHeader>
+      <Card
+        className={
+          'border-red-300 bg-red-50 text-red-700 flex flex-row justify-between '
+        }
+      >
+        <CardHeader className={'self-center'}>
           <CardTitle className="text-sm font-medium">Rejected</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className={'self-center'}>
           <p className="text-2xl font-bold">{rejected}</p>
         </CardContent>
       </Card>

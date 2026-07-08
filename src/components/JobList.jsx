@@ -6,7 +6,21 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import ConfirmDialog from './ConfirmDialog';
 
 function getStatusClasses(status) {
   switch (status) {
@@ -30,7 +44,7 @@ function getStatusClasses(status) {
   }
 }
 
-export default function JobList({ jobs, onUpdateStatus, onDeleteJob }) {
+export default function JobList({ jobs, onDeleteJob, onStartEdit }) {
   return (
     <Card>
       <CardHeader>
@@ -59,28 +73,45 @@ export default function JobList({ jobs, onUpdateStatus, onDeleteJob }) {
                   <TableCell>{job.roleTitle}</TableCell>
                   <TableCell>{job.dateApplied}</TableCell>
                   <TableCell>
-                    <select
-                      name="status"
-                      value={job.status}
-                      onChange={(e) => onUpdateStatus(job.id, e.target.value)}
-                      className={`rounded-md border px-3 py-2 text-sm font-medium ${getStatusClasses(
-                        job.status,
-                      )}`}
-                    >
-                      <option value="Applied">Applied</option>
-                      <option value="Phone Screen">Phone Screen</option>
-                      <option value="Interview">Interview</option>
-                      <option value="Rejected">Rejected</option>
-                      <option value="Offer">Offer</option>
-                    </select>
+                    <Badge className={`w-24 ${getStatusClasses(job.status)}`}>
+                      {job.status}
+                    </Badge>
                   </TableCell>
                   <TableCell>
-                    <button
-                      onClick={() => onDeleteJob(job.id)}
-                      className="rounded-md border border-red-300 px-3 py-2 text-sm text-red-600 hover:bg-red-50"
-                    >
-                      Delete
-                    </button>
+                    <div className="flex gap-2">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => onStartEdit(job)}
+                        className="rounded-md border px-3 py-2 text-sm hover:bg-slate-50"
+                      >
+                        Edit
+                      </Button>
+                      <ConfirmDialog
+                        trigger={
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="rounded-md border border-red-300 px-3 py-2 text-sm text-red-600 hover:bg-red-50"
+                          >
+                            Delete
+                          </Button>
+                        }
+                        title="Delete application?"
+                        description={`This will remove the application for ${job.roleTitle} at ${job.companyName}.`}
+                        confirmText="Delete"
+                        variant="danger"
+                        onConfirm={() => onDeleteJob(job.id)}
+                      />
+                      {/* <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => onDeleteJob(job.id)}
+                        className="rounded-md border border-red-300 px-3 py-2 text-sm text-red-600 hover:bg-red-50"
+                      >
+                        Delete
+                      </Button> */}
+                    </div>
                   </TableCell>
                 </TableRow>
               ))}
