@@ -1,0 +1,189 @@
+@reference '../index.css';
+
+.job-listing-ui {
+  @apply overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/60;
+}
+
+.job-listing-ui__toolbar {
+  @apply flex min-h-[6rem] flex-col gap-4 border-b border-slate-200 px-8 py-6 lg:flex-row lg:items-center;
+}
+
+.job-listing-ui__search,
+.job-listing-ui__filter {
+  @apply flex h-12 items-center gap-3 rounded-lg border border-slate-200 bg-white px-4 text-slate-500 shadow-sm transition-colors;
+}
+
+.job-listing-ui__search:focus-within,
+.job-listing-ui__filter:focus-within {
+  @apply border-blue-500 ring-4 ring-blue-100;
+}
+
+.job-listing-ui__search {
+  @apply w-full lg:max-w-sm;
+}
+
+.job-listing-ui__filter {
+  @apply w-full lg:max-w-[14rem];
+}
+
+.job-listing-ui__search input,
+.job-listing-ui__filter select {
+  @apply h-full min-w-0 flex-1 border-0 bg-transparent text-base font-medium text-slate-700 outline-none;
+}
+
+.job-listing-ui__search input::placeholder {
+  @apply text-slate-400;
+}
+
+.job-listing-ui__filter select {
+  @apply cursor-pointer appearance-none;
+}
+
+.job-listing-ui__add-button {
+  @apply flex h-12 w-full items-center justify-center gap-3 rounded-lg border-0 bg-[#08265c] px-7 text-base font-bold text-white shadow-sm transition-colors lg:ml-auto lg:w-auto;
+}
+
+.job-listing-ui__add-button:hover {
+  @apply bg-[#0757c9];
+}
+
+.job-listing-ui__table-wrap {
+  @apply w-full overflow-x-auto;
+}
+
+.job-listing-ui__table {
+  @apply w-full min-w-[860px] border-collapse text-left;
+}
+
+.job-listing-ui__table th {
+  @apply bg-slate-50 px-8 py-4 text-sm font-bold uppercase tracking-wider text-slate-500;
+}
+
+.job-listing-ui__table td {
+  @apply border-t border-slate-200 px-8 py-3 text-base font-medium text-slate-700;
+}
+
+.job-listing-ui__table tbody tr {
+  @apply transition-colors;
+}
+
+.job-listing-ui__table tbody tr:hover {
+  @apply bg-slate-50/70;
+}
+
+.job-listing-ui__sortable-heading {
+  @apply flex items-center gap-2;
+}
+
+.job-listing-ui__actions-heading {
+  @apply text-center;
+}
+
+.job-listing-ui__company {
+  @apply flex items-center gap-7 font-bold text-[#102a5c];
+}
+
+.job-listing-ui__company-logo {
+  @apply flex size-11 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white text-xl font-black shadow-sm;
+}
+
+.job-listing-ui__company-logo--google {
+  @apply text-blue-600;
+}
+
+.job-listing-ui__company-logo--microsoft {
+  @apply text-orange-500;
+}
+
+.job-listing-ui__company-logo--shopify {
+  @apply text-green-600;
+}
+
+.job-listing-ui__company-logo--amazon,
+.job-listing-ui__company-logo--notion {
+  @apply text-black;
+}
+
+.job-listing-ui__company-logo--meta {
+  @apply text-blue-500;
+}
+
+.job-listing-ui__company-logo--airbnb {
+  @apply text-rose-500;
+}
+
+.job-listing-ui__status {
+  @apply inline-flex min-w-[7rem] items-center justify-center gap-3 rounded-full px-4 py-2 text-sm font-bold;
+}
+
+.job-listing-ui__status::before {
+  @apply size-2 rounded-full;
+  content: '';
+}
+
+.job-listing-ui__status--applied {
+  @apply bg-sky-100 text-sky-600;
+}
+
+.job-listing-ui__status--applied::before {
+  @apply bg-sky-500;
+}
+
+.job-listing-ui__status--phone-screen {
+  @apply bg-violet-100 text-violet-600;
+}
+
+.job-listing-ui__status--phone-screen::before {
+  @apply bg-violet-500;
+}
+
+.job-listing-ui__status--interview {
+  @apply bg-amber-100 text-amber-600;
+}
+
+.job-listing-ui__status--interview::before {
+  @apply bg-amber-500;
+}
+
+.job-listing-ui__status--offer {
+  @apply bg-emerald-100 text-emerald-600;
+}
+
+.job-listing-ui__status--offer::before {
+  @apply bg-emerald-500;
+}
+
+.job-listing-ui__status--rejected {
+  @apply bg-rose-100 text-rose-600;
+}
+
+.job-listing-ui__status--rejected::before {
+  @apply bg-rose-500;
+}
+
+.job-listing-ui__actions {
+  @apply flex items-center justify-center gap-4;
+}
+
+.job-listing-ui__icon-button {
+  @apply flex size-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-[#08265c] shadow-sm transition-colors;
+}
+
+.job-listing-ui__icon-button:hover {
+  @apply border-blue-300 bg-blue-50 text-blue-700;
+}
+
+.job-listing-ui__empty {
+  @apply py-12 text-center text-slate-500;
+}
+
+@media (max-width: 640px) {
+  .job-listing-ui__toolbar {
+    @apply px-4;
+  }
+
+  .job-listing-ui__table th,
+  .job-listing-ui__table td {
+    @apply px-5;
+  }
+}

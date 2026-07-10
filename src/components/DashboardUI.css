@@ -1,0 +1,100 @@
+@reference '../index.css';
+
+.dashboard-ui {
+  @apply space-y-10;
+}
+
+.dashboard-ui__heading {
+  @apply space-y-2;
+}
+
+.dashboard-ui__heading h1 {
+  @apply text-5xl font-bold tracking-normal text-[#08265c];
+}
+
+.dashboard-ui__heading p {
+  @apply text-lg font-medium text-slate-500;
+}
+
+.dashboard-ui__stats {
+  @apply grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6;
+}
+
+.dashboard-ui__stat-card {
+  @apply relative flex min-h-[8rem] items-center gap-7 overflow-hidden rounded-lg border border-slate-200 bg-white px-5 shadow-sm;
+}
+
+.dashboard-ui__stat-card::after {
+  @apply absolute bottom-0 left-0 h-1 w-full;
+  content: '';
+}
+
+.dashboard-ui__stat-icon {
+  @apply flex size-16 shrink-0 items-center justify-center rounded-3xl;
+}
+
+.dashboard-ui__stat-label {
+  @apply text-base font-medium text-slate-500;
+}
+
+.dashboard-ui__stat-value {
+  @apply mt-1 block text-4xl font-bold leading-none text-[#08265c];
+}
+
+.dashboard-ui__stat-card--blue .dashboard-ui__stat-icon {
+  @apply bg-blue-50 text-blue-600;
+}
+
+.dashboard-ui__stat-card--blue::after {
+  @apply bg-blue-600;
+}
+
+.dashboard-ui__stat-card--sky .dashboard-ui__stat-icon {
+  @apply bg-sky-50 text-sky-500;
+}
+
+.dashboard-ui__stat-card--sky::after {
+  @apply bg-sky-400;
+}
+
+.dashboard-ui__stat-card--violet .dashboard-ui__stat-icon {
+  @apply bg-violet-50 text-violet-600;
+}
+
+.dashboard-ui__stat-card--violet::after {
+  @apply bg-violet-600;
+}
+
+.dashboard-ui__stat-card--amber .dashboard-ui__stat-icon {
+  @apply bg-amber-50 text-amber-500;
+}
+
+.dashboard-ui__stat-card--amber::after {
+  @apply bg-amber-400;
+}
+
+.dashboard-ui__stat-card--emerald .dashboard-ui__stat-icon {
+  @apply bg-emerald-50 text-emerald-500;
+}
+
+.dashboard-ui__stat-card--emerald::after {
+  @apply bg-emerald-400;
+}
+
+.dashboard-ui__stat-card--rose .dashboard-ui__stat-icon {
+  @apply bg-rose-50 text-rose-500;
+}
+
+.dashboard-ui__stat-card--rose::after {
+  @apply bg-rose-400;
+}
+
+@media (max-width: 640px) {
+  .dashboard-ui__heading h1 {
+    @apply text-4xl;
+  }
+
+  .dashboard-ui__stat-card {
+    @apply min-h-[7rem] gap-5;
+  }
+}

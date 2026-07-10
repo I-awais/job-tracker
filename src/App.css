@@ -1,3 +1,13 @@
+@reference './index.css';
+
+.job-tracker-shell {
+  @apply min-h-screen bg-[#f6f9fd] text-slate-900;
+}
+
+.job-tracker-content {
+  @apply mx-auto max-w-[1820px] space-y-9 px-6 py-9 sm:px-10 lg:px-14;
+}
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;
