@@ -173,6 +173,70 @@
   @apply border-blue-300 bg-blue-50 text-blue-700;
 }
 
+.job-listing-ui__icon-button--view {
+  @apply text-sky-700;
+}
+
+.job-listing-ui__icon-button--view:hover {
+  @apply border-sky-300 bg-sky-50 text-sky-700;
+}
+
+.job-listing-ui__icon-button--edit {
+  @apply text-indigo-700;
+}
+
+.job-listing-ui__icon-button--edit:hover {
+  @apply border-indigo-300 bg-indigo-50 text-indigo-700;
+}
+
+.job-listing-ui__icon-button--delete {
+  @apply text-rose-600;
+}
+
+.job-listing-ui__icon-button--delete:hover {
+  @apply border-rose-300 bg-rose-50 text-rose-700;
+}
+
+.job-listing-ui__icon-button:disabled {
+  @apply cursor-not-allowed opacity-45;
+}
+
+.job-listing-ui__detail-list {
+  @apply space-y-3;
+}
+
+.job-listing-ui__detail-row {
+  @apply grid gap-1 rounded-lg border border-slate-200 bg-slate-50/70 p-3 sm:grid-cols-[8rem_1fr];
+}
+
+.job-listing-ui__detail-row dt {
+  @apply text-sm font-bold uppercase tracking-wide text-slate-500;
+}
+
+.job-listing-ui__detail-row dd {
+  @apply min-w-0 text-sm font-medium text-slate-800;
+}
+
+.job-listing-ui__detail-row a {
+  @apply break-all text-blue-700 underline underline-offset-2;
+}
+
+.job-listing-ui__detail-row--description dd {
+  @apply whitespace-pre-wrap leading-6;
+}
+
+.job-listing-ui__modal-actions {
+  @apply flex flex-col gap-2 pt-2 sm:flex-row sm:justify-end;
+}
+
+.job-listing-ui__modal-actions button {
+  @apply inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 text-sm font-bold text-[#08265c] shadow-sm transition-colors;
+}
+
+.job-listing-ui__modal-actions button:hover {
+  @apply border-blue-300 bg-blue-50 text-blue-700;
+}
+
 .job-listing-ui__empty {
   @apply py-12 text-center text-slate-500;
 }
